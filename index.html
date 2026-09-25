@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSI Student Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎓 HSI Student Management</h1>
+      <p class="subtitle">Aplikasi CRUD Siswa Sederhana — Data tersimpan di LocalStorage</p>
+    </header>
+
+    <!-- Area Pesan / Alert -->
+    <div id="alertMessage" class="alert hidden"></div>
+
+    <!-- Form Tambah / Edit Siswa -->
+    <section class="card">
+      <h2 id="formTitle">➕ Tambah Siswa</h2>
+      <form id="studentForm">
+        <div class="form-group">
+          <label for="studentName">Nama Siswa</label>
+          <input type="text" id="studentName" placeholder="Masukkan nama siswa" required />
+        </div>
+        <div class="form-group">
+          <label for="studentScore">Nilai</label>
+          <input type="number" id="studentScore" placeholder="0 - 100" min="0" max="100" required />
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="submitBtn" class="btn btn-primary">➕ Tambah Siswa</button>
+          <button type="button" id="cancelBtn" class="btn btn-secondary hidden">❌ Batal Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Statistik -->
+    <section class="stats">
+      <div class="stat-card">
+        <h3>Total Siswa</h3>
+        <p id="totalStudents">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Rata-rata Nilai</h3>
+        <p id="averageScore">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>🏆 Nilai Tertinggi</h3>
+        <p id="highestScore">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>📉 Nilai Terendah</h3>
+        <p id="lowestScore">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>📊 Nilai ≥ 75</h3>
+        <p id="passedCount">0</p>
+      </div>
+    </section>
+
+    <!-- Pencarian & Hapus Semua -->
+    <section class="toolbar">
+      <input type="text" id="searchInput" placeholder="🔍 Cari siswa berdasarkan nama..." />
+      <button id="deleteAllBtn" class="btn btn-danger">🧹 Hapus Semua</button>
+    </section>
+
+    <!-- Daftar Siswa -->
+    <section class="card">
+      <h2>📋 Daftar Siswa</h2>
+      <div id="studentList"></div>
+      <p id="emptyMessage" class="empty">Belum ada data siswa. Silakan tambahkan siswa baru.</p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
